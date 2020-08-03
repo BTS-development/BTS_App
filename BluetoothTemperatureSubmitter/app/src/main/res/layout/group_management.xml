@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/retangle2">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/group_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/group28"
+        app:civ_border_color="#FF9696"
+        app:civ_border_width="2dp" />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#C55D5D"
+            android:textSize="18dp"
+            android:text="STAC 개발팀"
+            android:fontFamily="@font/roboto"/>
+        <TextView
+            android:id="@+id/group_people"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="정한빈,한빈,정빈,외 2명"
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_medium"/>
+    </LinearLayout>
+</LinearLayout>
