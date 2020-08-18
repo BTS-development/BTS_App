@@ -39,12 +39,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:padding="1dp"
+        app:cornerRadius="10dp"
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="200dp"
-        android:background="@drawable/shape"
+        android:backgroundTint="#ffffff"
         android:text="로그인"
         android:textColor="#FF9696"
         android:textSize="18dp"
@@ -52,12 +54,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginBottom="140dp"
-        android:background="#00ff0000"
+        android:backgroundTint="#00ff0000"
         android:text="회원가입"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"

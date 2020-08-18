@@ -16,9 +16,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btsback" />
 
-    <EditText
-        android:id="@+id/IDtext"
-        android:hint="ID"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/IDTextLayout"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -26,68 +26,56 @@
         android:textColor="#FF9696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/IDText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="아이디 또는 이메일"
+            android:textColorHint="#FF9696"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="이메일"
-        android:textColor="#FF9696"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/IDtext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/passwordLayout"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:backgroundTint="#FF9696"
-        android:hint="password"
-        android:textColor="#FF9696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IDtext" />
+        app:layout_constraintTop_toBottomOf="@+id/IDTextLayout" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="비밀번호"
+            android:textColorHint="#FF9696"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_marginTop="70dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
         android:background="@drawable/shape2"
+        app:cornerRadius="10dp"
+        app:backgroundTint="#FF9696"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:text="로그인"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLostPwd"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        android:background="#00ff0000"
+        android:backgroundTint="#00ff0000"
         android:textColor="#FFA4A4"
-        android:textSize="18dp"
+        android:textSize="14dp"
         android:text="계정을 잃어버리셨나요?"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="비밀번호"
-        android:textColor="#FF9696"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
