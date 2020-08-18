@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class Group_class(val context: Context, val group_list: ArrayList<group>) : BaseAdapter(){
+class GroupClass(val context: Context, val group_list: ArrayList<Group>) : BaseAdapter(){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.group_management,null)
 
