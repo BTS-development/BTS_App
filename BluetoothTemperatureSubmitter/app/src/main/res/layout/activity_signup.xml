@@ -25,12 +25,16 @@
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imglogo" >
+        app:layout_constraintTop_toBottomOf="@+id/imglogo"
+        android:textColorHint="#FF9696"
+        app:boxStrokeColor="#ff9696"
+        app:hintTextColor="#FF9696">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpID"
             android:hint="아이디 또는 이메일"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/login_cursor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,12 +45,17 @@
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpIDLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/signUpIDLayout"
+        android:textColorHint="#FF9696"
+        app:boxStrokeColor="#ff9696"
+        app:hintTextColor="#FF9696">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpPassword"
             android:hint="비밀번호"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:textCursorDrawable="@drawable/login_cursor"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,13 +67,17 @@
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordLayout"
+        android:textColorHint="#FF9696"
+        app:boxStrokeColor="#ff9696"
+        app:hintTextColor="#FF9696">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/checkPwd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="비밀번호 확인" />
+            android:hint="비밀번호 확인"
+            android:textCursorDrawable="@drawable/login_cursor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton

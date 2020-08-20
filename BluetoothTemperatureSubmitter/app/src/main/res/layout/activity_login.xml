@@ -26,13 +26,17 @@
         android:textColor="#FF9696"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:textColorHint="#FF9696"
+        app:boxStrokeColor="#ff9696"
+        app:hintTextColor="#FF9696">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/IDText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="아이디 또는 이메일"
-            android:textColorHint="#FF9696"/>
+            android:textColorHint="#FF9696"
+            android:textCursorDrawable="@drawable/login_cursor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,13 +47,17 @@
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IDTextLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/IDTextLayout"
+        android:textColorHint="#FF9696"
+        app:boxStrokeColor="#ff9696"
+        app:hintTextColor="#FF9696">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="비밀번호"
-            android:textColorHint="#FF9696"/>
+            android:textColorHint="#FF9696"
+            android:textCursorDrawable="@drawable/login_cursor"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
