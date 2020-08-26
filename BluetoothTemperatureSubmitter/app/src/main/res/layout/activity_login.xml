@@ -74,14 +74,14 @@
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:text="로그인"/>
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLostPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        android:backgroundTint="#00ff0000"
+        android:background="#00ff0000"
         android:textColor="#FFA4A4"
         android:textSize="14dp"
         android:text="계정을 잃어버리셨나요?"/>
