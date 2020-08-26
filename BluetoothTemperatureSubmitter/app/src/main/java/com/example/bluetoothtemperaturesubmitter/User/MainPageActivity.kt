@@ -1,11 +1,9 @@
-package com.example.bluetoothtemperaturesubmitter
+package com.example.bluetoothtemperaturesubmitter.User
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toolbar
 import com.example.bluetoothtemperaturesubmitter.Fragment.Main_User
-import kotlinx.android.synthetic.main.activity_main_page.*
+import com.example.bluetoothtemperaturesubmitter.R
 
 class MainPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

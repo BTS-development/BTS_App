@@ -28,7 +28,7 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="40dp"
-                android:src="@color/colorPrimary"
+                android:src="@drawable/ic_launcher_foreground"
                 app:civ_border_color="#FF9696"
                 app:civ_border_width="2dp"></de.hdodenhof.circleimageview.CircleImageView>
 
