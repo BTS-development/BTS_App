@@ -116,7 +116,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="그룹 ID 입력"
+            android:text="그룹 코드 입력"
             android:textSize="18dp"
             android:fontFamily="@font/roboto_medium"
             android:textColor="#797979"
@@ -126,7 +126,7 @@
             android:id="@+id/Group_ID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID 입력"
+            android:hint="코드 입력"
             android:background="#ffffff"
             android:layout_marginLeft="70dp"
             android:textSize="13dp"
