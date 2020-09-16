@@ -22,15 +22,16 @@
             android:layout_height="60dp"
             android:background="@drawable/mainpage_top"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="220dp"
                 android:layout_height="35dp"
-                android:text="그룹 관리"
-                android:textSize="25dp"
-                android:fontFamily="@font/roboto"
-                android:textColor="#ffffff"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"/>
+                android:fontFamily="@font/roboto"
+                android:text="내 그룹"
+                android:textColor="#ffffff"
+                android:textSize="25dp" />
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -38,26 +39,30 @@
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
-        <ListView
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/group_listview"
-            android:dividerHeight="20dp"
-            android:divider="#00000000"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ListView>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/group_listview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="#00000000"
+        android:dividerHeight="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear">
+
+    </ListView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
+        app:itemIconTint="@color/icon_color"
+        app:itemTextColor="@color/icon_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:itemTextColor="@color/icon_color"
-        app:itemIconTint="@color/icon_color"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

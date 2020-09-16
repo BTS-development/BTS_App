@@ -82,10 +82,12 @@
             android:layout_alignParentRight="true"
             android:layout_width="100dp"
             android:layout_height="30dp"/>
+
         <ListView
-            android:layout_marginTop="30dp"
+            android:id="@+id/temperature_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff"/>
+            android:layout_marginTop="30dp"
+            android:background="#ffffff" />
     </RelativeLayout>
 </LinearLayout>

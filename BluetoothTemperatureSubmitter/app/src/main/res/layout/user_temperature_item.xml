@@ -11,23 +11,26 @@
         android:id="@+id/user_date"
         android:layout_width="25dp"
         android:layout_height="18dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/roboto_regular"
         android:text="8.23"
         android:textColor="#000000"
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.47" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="51dp"
         android:layout_height="33dp"
-        android:orientation="vertical"
         android:layout_marginRight="80dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/My_temperature_state_listview"
-        app:layout_constraintStart_toEndOf="@+id/user_date">
+        app:layout_constraintStart_toEndOf="@+id/user_date"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/my_temperature_listview"

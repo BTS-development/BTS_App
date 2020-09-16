@@ -1,4 +1,4 @@
-package com.example.bluetoothtemperaturesubmitter.API
+package com.example.bluetoothtemperaturesubmitter.DTO
 
 data class Groups(
     var name : String,
