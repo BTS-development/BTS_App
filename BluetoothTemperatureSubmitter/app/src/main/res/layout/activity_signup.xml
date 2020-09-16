@@ -24,11 +24,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_face_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imglogo"
-        android:textColorHint="#FF9696"
-        app:boxStrokeColor="#ff9696"
-        app:hintTextColor="#FF9696">
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/icon_color"
+        app:startIconTint="@color/icon_color"
+        android:textColorHint="@color/icon_color"
+        app:boxStrokeColor="@color/icon_color"
+        app:hintTextColor="@color/icon_color">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpID"
             android:hint="아이디 또는 이메일"
@@ -42,19 +46,30 @@
         android:id="@+id/signUpPasswordLayout"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:startIconTint="@color/icon_color"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/icon_color"
+        app:errorTextColor="@color/icon_color"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:errorIconTint="@color/icon_color"
+        app:counterTextColor="@color/icon_color"
+        app:counterMaxLength="12"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpIDLayout"
-        android:textColorHint="#FF9696"
-        app:boxStrokeColor="#ff9696"
-        app:hintTextColor="#FF9696">
+        android:textColorHint="@color/icon_color"
+        app:boxStrokeColor="@color/icon_color"
+        app:hintTextColor="@color/icon_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpPassword"
             android:hint="비밀번호"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textPassword"
             android:textCursorDrawable="@drawable/login_cursor"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,13 +79,23 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpPasswordLayout"
-        android:textColorHint="#FF9696"
-        app:boxStrokeColor="#ff9696"
-        app:hintTextColor="#FF9696">
+        app:startIconTint="@color/icon_color"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/icon_color"
+        app:errorTextColor="@color/icon_color"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:errorIconTint="@color/icon_color"
+        app:counterTextColor="@color/icon_color"
+        app:counterMaxLength="12"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:textColorHint="@color/icon_color"
+        app:boxStrokeColor="@color/icon_color"
+        app:hintTextColor="@color/icon_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/checkPwd"

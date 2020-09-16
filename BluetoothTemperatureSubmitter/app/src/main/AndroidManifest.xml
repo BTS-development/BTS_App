@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".group.Group_create"></activity>
+        <activity android:name=".group.Group_create" />
         <activity android:name=".group.Group_join" />
         <activity android:name=".group.Group_manage_member" />
         <activity android:name=".group.Group_manage_notion" />
@@ -24,14 +24,15 @@
         <activity android:name=".GroupActivity" />
         <activity android:name=".User.MainPageActivity" />
         <activity android:name=".SignupActivity">
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
