@@ -25,7 +25,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper;
+import com.example.bluetoothtemperaturesubmitter.API.TemperatureAPI;
+import com.example.bluetoothtemperaturesubmitter.DTO.Temperature;
 import com.example.bluetoothtemperaturesubmitter.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Measured_body_tempreture extends Activity {
@@ -52,6 +59,7 @@ public class Measured_body_tempreture extends Activity {
 
     LinearLayout measured_body_tempreture, endButton;
 
+    TemperatureAPI service = new RetrofitHelper(this).getTemperatureAPI();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +72,40 @@ public class Measured_body_tempreture extends Activity {
 
         // 블루투스 활성화 시키는 메소드
         checkBluetooth();
-        measured_body_tempreture.setOnClickListener((OnClickListener) v -> {
+        measured_body_tempreture.setOnClickListener(v -> {
             sendData();
             beginListenForData();
             mWorkerThread.start();
 
         });
-        endButton.setOnClickListener((OnClickListener) v -> {
-            Intent intent = new Intent(getApplicationContext(),MainPageActivity.class);
-            String s = mEditReceive.getText().toString();
-            int a = 0;
+        endButton.setOnClickListener(v -> {
+            String s = mEditReceive.getText().toString(); //아스키 코드로 숫자 도착
+            String temp = "";
+            double a = 0;
             int b;
             for(int i = 0; i < s.length()-1; i++){
                 b = s.charAt(i)-48;
-                a = a + (int)(b*Math.pow(10.0,s.length()-i-2));
+                temp += b;
             }
-            intent.putExtra("time",calendar.getTimeInMillis());
-            intent.putExtra("weighti",a);
-            setResult(Activity.RESULT_OK,intent);
+            try{
+                a = Double.parseDouble(temp);
+            } catch (Exception e){
+                Toast.makeText(this,"온도값 변환중 오류 발생", Toast.LENGTH_LONG).show();
+            }
+
+            String finalTemp = temp;
+            service.postTemp(a).enqueue(new Callback<Temperature>() {
+                @Override
+                public void onResponse(Call<Temperature> call, Response<Temperature> response) {
+                    Toast.makeText(getApplicationContext(),"온도 : " + finalTemp, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onFailure(Call<Temperature> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),"온도값 변환중 오류 발생", Toast.LENGTH_LONG).show();
+                }
+            });
+
             finish();
         });
 

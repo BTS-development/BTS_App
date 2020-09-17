@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="my_array">
-        <item>전체</item>
-        <item>이상 수치만</item>
-        <item>최근 내역 10개</item>
-    </string-array>
-</resources>

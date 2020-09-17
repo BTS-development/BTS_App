@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.bluetoothtemperaturesubmitter.DTO.Group
 
 class GroupClass(val context: Context, val group_list: ArrayList<Group>) : BaseAdapter(){
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.group_management,null)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.group_management,parent,false)
 
         val group_image = view.findViewById<ImageView>(R.id.group_image)
         val group_name = view.findViewById<TextView>(R.id.group_name)

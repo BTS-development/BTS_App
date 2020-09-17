@@ -68,392 +68,156 @@
                 android:src="@drawable/group_34" />
         </LinearLayout>
     </LinearLayout>
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/retangle"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto"
+                android:text="체온 측청 하러가기"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/next_page"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/group35" />
+        </LinearLayout>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="380dp"
+            android:layout_height="210dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/retangle2"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="128dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto"
+                android:text="내 체온 기록"
+                android:textColor="#803E3E"
+                android:textSize="18dp" />
+
             <LinearLayout
-                android:layout_width="380dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/today_result"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="36.5°C"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/yesterday_result"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="36.0°C"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/days_before_result"
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="36.5°C"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="오늘"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="어제"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="2일 전"
+                    android:textColor="#7D5555"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="270dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/retangle"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="270dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
+                    android:id="@+id/see_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/roboto"
-                    android:text="체온 측청 하러가기"
+                    android:gravity="center"
+                    android:text="자세히 보기"
                     android:textColor="#ffffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:id="@+id/next_page"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@drawable/group35" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="380dp"
-                android:layout_height="210dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/retangle2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="내 체온 기록"
-                    android:textColor="#803E3E"
-                    android:textSize="18dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/today_result"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/yesterday_result"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.0°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/days_before_result"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="오늘"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="어제"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="2일 전"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/retangle"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/see_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="자세히 보기"
-                        android:textColor="#ffffff"
-                        android:textSize="10dp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="380dp"
-                android:layout_height="210dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/retangle2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="내 체온 기록"
-                    android:textColor="#803E3E"
-                    android:textSize="18dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/today_result1"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/yesterday_result1"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.0°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/days_before_result1"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="오늘"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="어제"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="2일 전"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/retangle"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/see_details1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="자세히 보기"
-                        android:textColor="#ffffff"
-                        android:textSize="10dp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="380dp"
-                android:layout_height="210dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/retangle2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="내 체온 기록"
-                    android:textColor="#803E3E"
-                    android:textSize="18dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/today_result2"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/yesterday_result2"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.0°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/days_before_result2"
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="36.5°C"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="오늘"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="어제"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="2일 전"
-                        android:textColor="#7D5555"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/retangle"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/see_details2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center"
-                        android:text="자세히 보기"
-                        android:textColor="#ffffff"
-                        android:textSize="10dp" />
-                </LinearLayout>
+                    android:textSize="10dp" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+
 </LinearLayout>

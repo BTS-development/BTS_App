@@ -2,6 +2,7 @@ package com.example.bluetoothtemperaturesubmitter.API
 
 import com.example.bluetoothtemperaturesubmitter.DTO.Login
 import com.example.bluetoothtemperaturesubmitter.DTO.Signup
+import com.example.bluetoothtemperaturesubmitter.DTO.UserInfo
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,5 +23,5 @@ interface UserAPI {
     @GET("/users/account/{userid}")
     fun getUser(
         @Path("userid") userid : String
-    ) : Call<Signup>
+    ) : Call<UserInfo>
 }

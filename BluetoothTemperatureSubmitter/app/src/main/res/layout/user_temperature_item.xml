@@ -40,13 +40,6 @@
             android:text="36.5℃"
             android:textColor="#000000"
             android:textSize="15dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="오후 7:12"
-            android:textColor="#8C8C8C"
-            android:textSize="10dp" />
     </LinearLayout>
 
     <LinearLayout

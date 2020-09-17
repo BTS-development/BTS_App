@@ -21,7 +21,6 @@
         <activity android:name=".User.User_temperature_log" />
         <activity android:name=".User.Settings" />
         <activity android:name=".User.Measured_body_tempreture" />
-        <activity android:name=".GroupActivity" />
         <activity android:name=".User.MainPageActivity" />
         <activity android:name=".SignupActivity">
         </activity>
