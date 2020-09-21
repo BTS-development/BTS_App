@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MainNavigationPager">
+        </activity>
         <activity android:name=".group.Group_create" />
         <activity android:name=".group.Group_join" />
         <activity android:name=".group.Group_manage_member" />
         <activity android:name=".group.Group_manage_notion" />
         <activity android:name=".User.User_temperature_log" />
-        <activity android:name=".User.Settings" />
         <activity android:name=".User.Measured_body_tempreture" />
         <activity android:name=".User.MainPageActivity" />
-        <activity android:name=".SignupActivity">
-        </activity>
+        <activity android:name=".SignupActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

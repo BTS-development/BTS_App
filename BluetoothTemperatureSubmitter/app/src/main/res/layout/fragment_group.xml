@@ -9,36 +9,42 @@
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginBottom="30dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:background="@drawable/mainpage_top"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="220dp"
                 android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto"
                 android:text="내 그룹"
                 android:textColor="#ffffff"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
+                android:layout_marginEnd="30dp"
+                android:id="@+id/group_next"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/group25"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <ListView
@@ -47,22 +53,10 @@
         android:layout_height="0dp"
         android:divider="#00000000"
         android:dividerHeight="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear">
 
     </ListView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:itemIconTint="@color/icon_color"
-        app:itemTextColor="@color/icon_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

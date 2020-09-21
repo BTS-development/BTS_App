@@ -46,8 +46,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0' // 이미지 동그랗게 하는 라이브러리
     implementation 'com.google.android.material:material:1.2.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
     // Retrofit
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    // Stetho
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.facebook.stetho:stetho-js-rhino:1.5.0'
 }

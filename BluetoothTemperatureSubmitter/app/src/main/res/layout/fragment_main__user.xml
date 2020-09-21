@@ -41,7 +41,7 @@
 
                 <TextView
                     android:id="@+id/my_name"
-                    android:layout_width="75dp"
+                    android:layout_width="match_parent"
                     android:layout_height="34dp"
                     android:fontFamily="@font/roboto"
                     android:text="정한빈"

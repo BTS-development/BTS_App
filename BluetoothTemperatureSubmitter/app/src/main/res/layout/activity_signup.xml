@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btsback" />
-
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/signUpIDLayout"
@@ -34,11 +33,36 @@
         app:boxStrokeColor="@color/icon_color"
         app:hintTextColor="@color/icon_color">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/signUpID"
-            android:hint="아이디 또는 이메일"
+            android:id="@+id/signUpName"
+            android:hint="이름"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textCursorDrawable="@drawable/login_cursor"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginBottom="20dp"
+        android:id="@+id/signUpIDLayout1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/icon_color"
+        app:boxStrokeColor="@color/icon_color"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/icon_color"
+        app:hintTextColor="@color/icon_color"
+        app:layout_constraintBottom_toTopOf="@+id/signUpIDLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_face_24"
+        app:startIconTint="@color/icon_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="아이디 또는 이메일"
+            android:textCursorDrawable="@drawable/login_cursor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

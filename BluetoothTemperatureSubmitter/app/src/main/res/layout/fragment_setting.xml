@@ -6,24 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#E5E5E5"
-    tools:context=".User.Settings">
+    tools:context=".Fragment.Setting">
+
     <LinearLayout
         android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            android:src="@drawable/back_space" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:fontFamily="@font/roboto"
+            android:layout_margin="20dp"
             android:text="설정"
             android:textColor="#797979"
             android:textSize="20dp" />

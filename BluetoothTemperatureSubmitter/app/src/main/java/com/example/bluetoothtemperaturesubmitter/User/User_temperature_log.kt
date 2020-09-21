@@ -11,7 +11,6 @@ import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Temperature
 import com.example.bluetoothtemperaturesubmitter.R
 import kotlinx.android.synthetic.main.activity_user_temperature_log.*
-import kotlinx.android.synthetic.main.user_temperature_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
