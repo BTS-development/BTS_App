@@ -2,6 +2,7 @@ package com.example.bluetoothtemperaturesubmitter.User
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 
@@ -59,15 +60,15 @@ class User_temperature_log : AppCompatActivity() {
                 id: Long
             ) {
                 if (parent != null) {
-                    when {
-                        parent.getItemAtPosition(position) == 0 -> {
+                    when (position) {
+                        0 -> {
                             selectAll()
                         }
-                        parent.getItemAtPosition(position) == 1 -> {
-                            selectTen()
-                        }
-                        parent.getItemAtPosition(position) == 2 -> {
+                        1 -> {
                             selectHighTemp()
+                        }
+                        2 -> {
+                            selectTen()
                         }
                     }
                 }
@@ -80,15 +81,25 @@ class User_temperature_log : AppCompatActivity() {
         temperature_item.adapter = UserAdapter(this, tempData)
     }
     private fun selectTen(){
-        val dataList = ArrayList<Temperature>()
+        var dataList = ArrayList<Temperature>()
         var i = 0
         while(i < 10){
+            if(tempData.size < 10){
+                dataList = tempData
+                break
+            }
             dataList.add(tempData[i])
             i++
         }
         temperature_item.adapter = UserAdapter(this, dataList)
     }
     private fun selectHighTemp(){
-
+        val dataList = ArrayList<Temperature>()
+        for(t in tempData){
+            if(t.value >= 37.5 || t.value <= 35.5){
+                dataList.add(t)
+            }
+        }
+        temperature_item.adapter = UserAdapter(this, dataList)
     }
 }

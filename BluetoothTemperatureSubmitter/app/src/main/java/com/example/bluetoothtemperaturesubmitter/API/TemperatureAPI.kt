@@ -7,14 +7,20 @@ import retrofit2.http.*
 interface TemperatureAPI {
     @POST("/temperatures")
     fun postTemp(
+        @Header("Authorization") token : String,
         @Field("value") temperature : Double
     ) : Call<Temperature>
     @GET("/temperatures/{user_id}")
     fun getTemp(
+        @Header("Authorization") token : String,
         @Path("user_id") user_id : String
     ) : Call<Temperature>
     @GET("/temperatures/my/")
-    fun getMyTemp() : Call<ArrayList<Temperature>>
+    fun getMyTemp(
+        @Header("Authorization") token : String
+    ) : Call<ArrayList<Temperature>>
     @GET("/temperatures/group/{group_id}")
-    fun getGroupTemp() : Call<ArrayList<Temperature>>
+    fun getGroupTemp(
+        @Header("Authorization") token : String
+    ) : Call<ArrayList<Temperature>>
 }

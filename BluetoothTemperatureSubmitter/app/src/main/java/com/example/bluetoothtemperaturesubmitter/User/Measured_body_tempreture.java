@@ -91,6 +91,7 @@ public class Measured_body_tempreture extends Activity {
                 a = Double.parseDouble(temp);
             } catch (Exception e){
                 Toast.makeText(this,"온도값 변환중 오류 발생", Toast.LENGTH_LONG).show();
+                finish();
             }
 
             String finalTemp = temp;
@@ -183,7 +184,7 @@ public class Measured_body_tempreture extends Activity {
                 // interrupt() 메소드를 이용 스레드를 종료시키는 예제이다.
                 // interrupt() 메소드는 하던 일을 멈추는 메소드이다.
                 // isInterrupted() 메소드를 사용하여 멈추었을 경우 반복문을 나가서 스레드가 종료하게 된다.
-                while(cnt<5) {
+                while(cnt<1) {
                     try {
                         // InputStream.available() : 다른 스레드에서 blocking 하기 전까지 읽은 수 있는 문자열 개수를 반환함.
                         int byteAvailable = mInputStream.available();   // 수신 데이터 확인

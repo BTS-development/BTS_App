@@ -23,7 +23,7 @@ interface UserAPI {
     ) : Call<Login>
     @GET("/users/{userid}")
     fun getUser(
-            @Header("Authorization") token : String,
+        @Header("Authorization") token : String,
         @Path("userid") userid : String
     ) : Call<UserInfo>
 }

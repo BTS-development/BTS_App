@@ -15,12 +15,18 @@ class UserAdapter(val context: Context, private val arrayList: ArrayList<Tempera
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.user_temperature_item, parent,false)
 
-        if (arrayList[position].value > 37.5){
+        if (arrayList[position].value >= 37.5){
             view.My_temperature_state_listview.setBackgroundDrawable (ContextCompat.getDrawable(context, R.drawable.high_temp))
-        } else if(arrayList[position].value < 35.5){
+        } else if(arrayList[position].value <= 35.5){
             view.My_temperature_state_listview.setBackgroundDrawable (ContextCompat.getDrawable(context, R.drawable.ractangle))
         }
-        view.user_date.text = arrayList[position].created_at.substring(5)
+
+        val token = arrayList[position].created_at.split('-')
+        val time = token[1] + "." + token[2]
+        view.user_date.text = time
+
+
+        view.my_temperature_listview.text = arrayList[position].value.toString()
 
         return view
     }

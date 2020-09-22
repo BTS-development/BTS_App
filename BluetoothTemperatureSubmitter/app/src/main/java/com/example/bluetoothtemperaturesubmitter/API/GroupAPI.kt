@@ -8,12 +8,16 @@ import retrofit2.http.*
 interface GroupAPI {
     @POST("/groups")
     fun createGroup(
+        @Header("Authorization") token : String,
         @Field("name") name : String
     ) : Call<Groups>
     @POST("/groups/join")
     fun joinGroup(
+        @Header("Authorization") token : String,
         @Field("code") code : String
     ) : Call<JoinGroup>
     @GET("/groups/mygroup")
-    fun getMygroup() : Call<ArrayList<Groups>>
+    fun getMygroup(
+        @Header("Authorization") token : String
+    ) : Call<ArrayList<Groups>>
 }
