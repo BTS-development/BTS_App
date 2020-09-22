@@ -2,25 +2,18 @@ package com.example.bluetoothtemperaturesubmitter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Button
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
-import com.example.bluetoothtemperaturesubmitter.API.UserAPI
-import com.example.bluetoothtemperaturesubmitter.DTO.Login
 import com.example.bluetoothtemperaturesubmitter.Fragment.GroupFragment
 import com.example.bluetoothtemperaturesubmitter.Fragment.Main_User
 import com.example.bluetoothtemperaturesubmitter.Fragment.Setting
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main__pager.*
 
 class MainNavigationPager : AppCompatActivity() {
     private val fragmentManager: FragmentManager = supportFragmentManager
     private val fragmentButton : Main_User = Main_User()
-    private val Setting : Setting = Setting()
-    private val GroupFragment : GroupFragment = GroupFragment()
+    private val setting : Setting = Setting()
+    private val groupFragment : GroupFragment = GroupFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main__pager)
@@ -30,6 +23,8 @@ class MainNavigationPager : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString("token", intent.getStringExtra("token"))
         bundle.putInt("pk",intent.getIntExtra("pk",0))
+
+        groupFragment.arguments = bundle
         fragmentButton.arguments = bundle
 
         val transaction: FragmentTransaction = fragmentManager.beginTransaction()
@@ -48,11 +43,11 @@ class MainNavigationPager : AppCompatActivity() {
                     true
                 }
                 R.id.page_2 -> {
-                    transaction.replace(R.id.frame, GroupFragment).commitAllowingStateLoss()
+                    transaction.replace(R.id.frame, groupFragment).commitAllowingStateLoss()
                     true
                 }
                 R.id.page_3 -> {
-                    transaction.replace(R.id.frame, Setting).commitAllowingStateLoss()
+                    transaction.replace(R.id.frame, setting).commitAllowingStateLoss()
                     true
                 }
                 else -> false

@@ -59,7 +59,7 @@ public class Measured_body_tempreture extends Activity {
 
     LinearLayout measured_body_tempreture, endButton;
 
-    TemperatureAPI service = new RetrofitHelper(this).getTemperatureAPI();
+    TemperatureAPI service = new RetrofitHelper().getTemperatureAPI();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class Measured_body_tempreture extends Activity {
         setContentView(R.layout.activity_measured_body_tempreture);
 
         mEditReceive = (TextView)findViewById(R.id.text);
-        measured_body_tempreture=findViewById(R.id.Measured_body_tempreture);
+        measured_body_tempreture=findViewById(R.id.measured_body_tempreture);
         endButton = findViewById(R.id.endButton);
 
         // 블루투스 활성화 시키는 메소드
@@ -95,7 +95,7 @@ public class Measured_body_tempreture extends Activity {
             }
 
             String finalTemp = temp;
-            service.postTemp(a).enqueue(new Callback<Temperature>() {
+            service.postTemp("",a).enqueue(new Callback<Temperature>() {
                 @Override
                 public void onResponse(Call<Temperature> call, Response<Temperature> response) {
                     Toast.makeText(getApplicationContext(),"온도 : " + finalTemp, Toast.LENGTH_LONG).show();

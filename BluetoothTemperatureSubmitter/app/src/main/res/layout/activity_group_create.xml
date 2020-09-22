@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/Grout_my_name"
+                    android:id="@+id/Group_my_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#363636"
@@ -87,7 +87,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center"/>
                 <TextView
-                    android:id="@+id/Grout_my_email"
+                    android:id="@+id/Group_my_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
@@ -123,7 +123,7 @@
             android:layout_marginTop="35dp"
             android:layout_marginLeft="35dp"/>
         <EditText
-            android:id="@+id/Group_ID"
+            android:id="@+id/Group_ID_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="그룹 이름 "
@@ -133,24 +133,5 @@
             android:textColor="#000000"
             android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="그룹 멤버 초대 코드"
-            android:textSize="18dp"
-            android:fontFamily="@font/roboto"
-            android:textColor="#797979"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="35dp"/>
-        <TextView
-            android:id="@+id/Group_Code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="49HD14"
-            android:gravity="center"
-            android:background="#ffffff"
-            android:textSize="25dp"
-            android:textColor="#020202"
-            android:layout_marginTop="10dp"/>
     </LinearLayout>
 </LinearLayout>

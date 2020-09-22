@@ -5,12 +5,12 @@ import com.example.bluetoothtemperaturesubmitter.R
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitHelper(val context: Context?){
+class RetrofitHelper{
 
 
 
         var retrofit = Retrofit.Builder()
-            .baseUrl(context?.getString(R.string.BASE_URL))
+            .baseUrl("http://13.124.153.76/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

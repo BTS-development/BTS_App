@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface TemperatureAPI {
+    @FormUrlEncoded
     @POST("/temperatures")
     fun postTemp(
         @Header("Authorization") token : String,

@@ -27,13 +27,6 @@
             android:text="그룹 관리"
             android:textColor="#797979"
             android:textSize="20dp" />
-        <ImageView
-            android:layout_marginTop="5dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="70dp"
-            android:src="@drawable/group25"/>
     </LinearLayout>
     <LinearLayout
         android:layout_margin="15dp"

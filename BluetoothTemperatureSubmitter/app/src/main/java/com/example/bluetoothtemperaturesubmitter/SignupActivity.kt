@@ -36,15 +36,15 @@ class SignupActivity : AppCompatActivity() {
         val password1 = userPassword1View.text.toString()
         val password2 = userPassword2View.text.toString()
         if (password1 == password2){
-            RetrofitHelper(this).getUserAPI().signUp(username, email, password1, password2).enqueue(object : retrofit2.Callback<Signup> {
+            RetrofitHelper().getUserAPI().signUp(username, email, password1, password2).enqueue(object : retrofit2.Callback<Signup> {
                 override fun onResponse(call: Call<Signup>, response: Response<Signup>) {
                     when (response.code()) {
-                        201 -> {
+                        200 -> {
                             Toast.makeText(this@SignupActivity , "회원가입 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@SignupActivity,MainActivity::class.java)
                             startActivity(intent)
                         }
-                        405 -> {
+                        400 -> {
                             Toast.makeText(this@SignupActivity, "회원가입 실패: 아이디나 비번이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
                         }
                         500 -> {

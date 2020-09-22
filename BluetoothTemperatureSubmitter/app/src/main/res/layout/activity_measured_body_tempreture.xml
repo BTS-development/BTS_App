@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Measured_body_tempreture">
+        app:layout_constraintTop_toBottomOf="@+id/measured_body_tempreture">
 
         <TextView
             android:layout_width="match_parent"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
     <LinearLayout
-        android:id="@+id/Measured_body_tempreture"
+        android:id="@+id/measured_body_tempreture"
         android:layout_width="170dp"
         android:layout_height="60dp"
         android:layout_gravity="center"

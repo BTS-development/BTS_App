@@ -19,12 +19,12 @@ import retrofit2.Response
 class User_temperature_log : AppCompatActivity() {
 
     lateinit var tempData : ArrayList<Temperature>
-    private val tempAPI = RetrofitHelper(this).getTemperatureAPI()
+    private val tempAPI = RetrofitHelper().getTemperatureAPI()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_temperature_log)
-        tempAPI.getMyTemp().enqueue(object : Callback<ArrayList<Temperature>>{
+        tempAPI.getMyTemp("").enqueue(object : Callback<ArrayList<Temperature>>{
             override fun onFailure(call: Call<ArrayList<Temperature>>, t: Throwable) {
                 Toast.makeText(this@User_temperature_log, "오류 발생 : $t", Toast.LENGTH_LONG).show()
             }

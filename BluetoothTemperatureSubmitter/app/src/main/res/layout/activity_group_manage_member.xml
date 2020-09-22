@@ -67,6 +67,24 @@
                 android:fontFamily="@font/roboto_medium"/>
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="그룹 멤버 초대 코드"
+        android:textSize="18dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="#797979"
+        android:layout_marginLeft="35dp"/>
+    <TextView
+        android:id="@+id/Group_Code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="49HD14"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:textSize="25dp"
+        android:textColor="#020202"
+        android:layout_marginTop="10dp"/>
    <LinearLayout
        android:layout_marginTop="10dp"
        android:layout_width="match_parent"
@@ -131,7 +149,8 @@
            android:background="#000000" />
        <ListView
            android:layout_marginTop="20dp"
-           android:layout_marginLeft="27dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginRight="25dp"
            android:id="@+id/Group_member"
            android:layout_width="match_parent"
            android:layout_height="match_parent"/>
