@@ -94,7 +94,8 @@ class GroupFragment : Fragment() {
         }
         view.group_listview_member.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, long: Long ->
             val intent = Intent(context, Group_manage_notion::class.java)
-            intent.putExtra("key","this is Owner")
+            intent.putExtra("pk",pk)
+            intent.putExtra("token", token)
             intent.putExtra("group_id",arrayList[position].id)
             intent.putExtra("group_name",arrayList[position].name)
             intent.putExtra("group_code",arrayList[position].code)
