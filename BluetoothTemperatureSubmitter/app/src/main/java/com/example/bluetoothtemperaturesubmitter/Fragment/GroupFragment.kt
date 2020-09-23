@@ -96,11 +96,11 @@ class GroupFragment : Fragment() {
             val intent = Intent(context, Group_manage_notion::class.java)
             intent.putExtra("pk",pk)
             intent.putExtra("token", token)
-            intent.putExtra("group_id",arrayList[position].id)
-            intent.putExtra("group_name",arrayList[position].name)
-            intent.putExtra("group_code",arrayList[position].code)
-            intent.putExtra("group_date",arrayList[position].created_at)
-            intent.putExtra("group_owner",arrayList[position].owner)
+            intent.putExtra("group_id",arrayList1[position].id)
+            intent.putExtra("group_name",arrayList1[position].name)
+            intent.putExtra("group_code",arrayList1[position].code)
+            intent.putExtra("group_date",arrayList1[position].created_at)
+            intent.putExtra("group_owner",arrayList1[position].owner)
             startActivity(intent)
         }
 
