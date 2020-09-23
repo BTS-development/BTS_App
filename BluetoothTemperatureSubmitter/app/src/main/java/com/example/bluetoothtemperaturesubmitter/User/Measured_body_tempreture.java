@@ -49,8 +49,6 @@ public class Measured_body_tempreture extends Activity {
     InputStream mInputStream = null;
     char mCharDelimiter =  '\n';
 
-
-    Calendar calendar = Calendar.getInstance();
     Thread mWorkerThread = null;
     byte[] readBuffer;
     int readBufferPosition;
@@ -78,6 +76,9 @@ public class Measured_body_tempreture extends Activity {
             mWorkerThread.start();
 
         });
+
+        Intent intent = getIntent();
+
         endButton.setOnClickListener(v -> {
             String s = mEditReceive.getText().toString(); //아스키 코드로 숫자 도착
             String temp = "";
@@ -99,7 +100,7 @@ public class Measured_body_tempreture extends Activity {
             }
 
             String finalTemp = temp;
-            service.postTemp("",a).enqueue(new Callback<Temperature>() {
+            service.postTemp(intent.getStringExtra("token"),a).enqueue(new Callback<Temperature>() {
                 @Override
                 public void onResponse(Call<Temperature> call, Response<Temperature> response) {
                     Toast.makeText(getApplicationContext(),"온도 : " + finalTemp, Toast.LENGTH_LONG).show();

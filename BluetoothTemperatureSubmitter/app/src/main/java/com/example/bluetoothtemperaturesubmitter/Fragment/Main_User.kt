@@ -12,6 +12,7 @@ import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.UserInfo
 import com.example.bluetoothtemperaturesubmitter.R
 import com.example.bluetoothtemperaturesubmitter.User.Measured_body_tempreture
+import com.example.bluetoothtemperaturesubmitter.User.User_temperature_log
 import kotlinx.android.synthetic.main.fragment_main__user.*
 import kotlinx.android.synthetic.main.fragment_main__user.view.*
 import retrofit2.Call
@@ -60,6 +61,17 @@ class Main_User() : Fragment() {
         root.go_temperatures.setOnClickListener {
             if(activity != null) {
                 val intent = Intent(activity, Measured_body_tempreture::class.java)
+                intent.putExtra("token",token)
+                activity!!.startActivity(intent)
+            } else {
+                Log.d("ERROR", "ERROR")
+            }
+        }
+
+        root.go_temperature_detail.setOnClickListener {
+            if(activity != null) {
+                val intent = Intent(activity, User_temperature_log::class.java)
+                intent.putExtra("token",token)
                 activity!!.startActivity(intent)
             } else {
                 Log.d("ERROR", "ERROR")

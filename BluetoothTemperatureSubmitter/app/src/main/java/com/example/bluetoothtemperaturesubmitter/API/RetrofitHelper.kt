@@ -9,7 +9,7 @@ class RetrofitHelper{
 
 
 
-        var retrofit = Retrofit.Builder()
+        private var retrofit = Retrofit.Builder()
             .baseUrl("http://13.124.153.76/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()

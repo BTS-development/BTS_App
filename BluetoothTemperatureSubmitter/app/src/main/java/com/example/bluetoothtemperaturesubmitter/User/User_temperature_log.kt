@@ -18,24 +18,24 @@ import retrofit2.Response
 
 class User_temperature_log : AppCompatActivity() {
 
-    lateinit var tempData : ArrayList<Temperature>
+    var tempData = ArrayList<Temperature>()
     private val tempAPI = RetrofitHelper().getTemperatureAPI()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_temperature_log)
-        tempAPI.getMyTemp("").enqueue(object : Callback<ArrayList<Temperature>>{
-            override fun onFailure(call: Call<ArrayList<Temperature>>, t: Throwable) {
+        tempAPI.getMyTemp(intent.getStringExtra("token")).enqueue(object : Callback<List<Temperature>>{
+            override fun onFailure(call: Call<List<Temperature>>, t: Throwable) {
                 Toast.makeText(this@User_temperature_log, "오류 발생 : $t", Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(
-                call: Call<ArrayList<Temperature>>,
-                response: Response<ArrayList<Temperature>>
+                call: Call<List<Temperature>>,
+                response: Response<List<Temperature>>
             ) {
                 if(response.isSuccessful){
                     if(response.code() == 200){
-                        tempData = response.body()!!
+                        tempData = (response.body() as ArrayList<Temperature>?)!!
                     }
                 }
             }

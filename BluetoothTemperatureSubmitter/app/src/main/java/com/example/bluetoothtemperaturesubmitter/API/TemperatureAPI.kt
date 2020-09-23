@@ -19,9 +19,10 @@ interface TemperatureAPI {
     @GET("/temperatures/my/")
     fun getMyTemp(
         @Header("Authorization") token : String
-    ) : Call<ArrayList<Temperature>>
+    ) : Call<List<Temperature>>
     @GET("/temperatures/group/{group_id}")
     fun getGroupTemp(
-        @Header("Authorization") token : String
-    ) : Call<ArrayList<Temperature>>
+        @Header("Authorization") token : String,
+        @Path("group_id") group_id : String
+    ) : Call<List<Temperature>>
 }

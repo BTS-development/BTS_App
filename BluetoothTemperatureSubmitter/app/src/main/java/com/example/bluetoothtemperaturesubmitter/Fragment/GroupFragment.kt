@@ -41,6 +41,8 @@ class GroupFragment : Fragment() {
         view.group_join.setOnClickListener {
             if (activity != null){
                 val intent = Intent(activity, Group_join::class.java)
+                intent.putExtra("token",token)
+                intent.putExtra("pk",pk)
                 activity!!.startActivity(intent)
                 activity!!.finish()
             }else {
@@ -84,13 +86,13 @@ class GroupFragment : Fragment() {
         }
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
-            val intent = Intent(context, Group_manage_notion::class.java)
+            val intent = Intent(activity, Group_manage_notion::class.java)
             intent.putExtra("group_id",arrayList[position].id)
             intent.putExtra("group_name",arrayList[position].name)
             intent.putExtra("group_code",arrayList[position].code)
             intent.putExtra("group_date",arrayList[position].created_at)
             intent.putExtra("group_owner",arrayList[position].owner)
-            startActivity(intent)
+            activity!!.startActivity(intent)
         }
         view.group_listview_member.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, long: Long ->
             val intent = Intent(context, Group_manage_notion::class.java)
