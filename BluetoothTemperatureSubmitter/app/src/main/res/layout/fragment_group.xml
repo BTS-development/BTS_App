@@ -61,6 +61,8 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/roboto"
         android:text="관리자"
         android:textColor="#000000"
@@ -70,21 +72,26 @@
         app:layout_constraintTop_toBottomOf="@+id/linear" />
 
     <ListView
-        android:layout_margin="10dp"
         android:id="@+id/group_listview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:divider="#00000000"
         android:dividerHeight="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/roboto"
         android:text="멤버"
         android:textColor="#000000"
@@ -112,5 +119,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="387dp" />
+        app:layout_constraintGuide_begin="377dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             RetrofitHelper().getUserAPI().signIn(IDText.text.toString(), passwordText.text.toString()).enqueue(object : Callback<Login>{
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                    when (response!!.code()) {
+                    when (response.code()) {
                         200 -> {
                             val intent = Intent(this@LoginActivity, MainNavigationPager::class.java)
                             intent.putExtra("token", "jwt " + response.body()!!.token)

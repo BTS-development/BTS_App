@@ -85,7 +85,11 @@ public class Measured_body_tempreture extends Activity {
             int b;
             for(int i = 0; i < s.length()-1; i++){
                 b = s.charAt(i)-48;
-                temp += b;
+                if(b == 2){
+                    temp += ".";
+                } else {
+                    temp += b;
+                }
             }
             try{
                 a = Double.parseDouble(temp);

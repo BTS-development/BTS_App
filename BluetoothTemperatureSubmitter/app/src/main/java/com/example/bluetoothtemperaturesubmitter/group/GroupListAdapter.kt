@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.group
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class GroupListAdapter(context: Context, dataList : List<Groups>) : BaseAdapter(
         return position.toLong()
     }
 
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val layoutInflater = LayoutInflater.from(mContext)
         val view = layoutInflater.inflate(R.layout.group_management, parent, false)
