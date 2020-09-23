@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:layout_width="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_height="5dp"
+        android:src="@drawable/ic_baseline_brightness_1_24"/>
+    <TextView
+        android:id="@+id/notice_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="12dp"
+        android:textColor="#696969"
+        android:fontFamily="@font/roboto_medium"
+        android:text="그룹원 한빈 님에게 고열이 감지되었습니다."/>
+</LinearLayout>
