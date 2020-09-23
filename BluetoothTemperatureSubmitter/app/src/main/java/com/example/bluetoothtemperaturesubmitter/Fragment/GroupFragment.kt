@@ -11,10 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Groups
 import com.example.bluetoothtemperaturesubmitter.R
-import com.example.bluetoothtemperaturesubmitter.group.GroupListAdapter
-import com.example.bluetoothtemperaturesubmitter.group.Group_create
-import com.example.bluetoothtemperaturesubmitter.group.Group_join
-import com.example.bluetoothtemperaturesubmitter.group.Group_manage_member
+import com.example.bluetoothtemperaturesubmitter.group.*
 import kotlinx.android.synthetic.main.fragment_group.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -87,7 +84,7 @@ class GroupFragment : Fragment() {
         }
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
-            val intent = Intent(context, Group_manage_member::class.java)
+            val intent = Intent(context, Group_manage_notion::class.java)
             intent.putExtra("group_id",arrayList[position].id)
             intent.putExtra("group_name",arrayList[position].name)
             intent.putExtra("group_code",arrayList[position].code)
@@ -96,7 +93,14 @@ class GroupFragment : Fragment() {
             startActivity(intent)
         }
         view.group_listview_member.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, long: Long ->
-            val intent = Intent()
+            val intent = Intent(context, Group_manage_notion::class.java)
+            intent.putExtra("key","this is Owner")
+            intent.putExtra("group_id",arrayList[position].id)
+            intent.putExtra("group_name",arrayList[position].name)
+            intent.putExtra("group_code",arrayList[position].code)
+            intent.putExtra("group_date",arrayList[position].created_at)
+            intent.putExtra("group_owner",arrayList[position].owner)
+            startActivity(intent)
         }
 
 
