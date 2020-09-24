@@ -46,7 +46,7 @@
             android:layout_height="50dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/notion_group_name"
+                android:id="@+id/member_group_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#C55D5D"
@@ -54,7 +54,7 @@
                 android:text="STAC 개발팀"
                 android:fontFamily="@font/roboto"/>
             <TextView
-                android:id="@+id/notion_group_people"
+                android:id="@+id/member_group_people"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="정한빈,한빈,정빈,외 2명"

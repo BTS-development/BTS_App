@@ -8,6 +8,7 @@ import com.example.bluetoothtemperaturesubmitter.DTO.Groups
 import com.example.bluetoothtemperaturesubmitter.DTO.User
 import com.example.bluetoothtemperaturesubmitter.R
 import kotlinx.android.synthetic.main.activity_group_manage_member.*
+import kotlinx.android.synthetic.main.group_management.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +24,7 @@ class Group_manage_member : AppCompatActivity() {
     fun manageMemberList(){
         val token = intent.getStringExtra("token")
         var manageArrayList = ArrayList<User>()
+        member_group_name.text = intent.getStringExtra("group_name")
         Log.d("token", token)
         RetrofitHelper().getGroupAPI().getGroupMember(token,intent.getIntExtra("group_id",0).toString()).enqueue(object : Callback<List<User>>{
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
@@ -31,6 +33,25 @@ class Group_manage_member : AppCompatActivity() {
                 Log.d("ID",intent.getIntExtra("group_id",0).toString())
 
                 Group_member.adapter = GroupManageAdapter(this@Group_manage_member,manageArrayList,token)
+
+                var i = 0
+                var text = ""
+                if(response.body()!!.size > 3){
+                    while (i < 2){
+                        text += response.body()!![i].username + ", "
+                        i++
+                    }
+                    text += response.body()!![3]
+                    text += "외 "+ (response.body()!!.size-3) + "명"
+                } else {
+                    while (i < response.body()!!.size){
+                        text += response.body()!![i].username
+                        if(++i != response.body()!!.size){
+                            text += ", "
+                        }
+                    }
+                }
+                member_group_people.text = text
                 Log.d("d",response.code().toString())
             }
 
