@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.User
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.AdapterView
 
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Temperature
 import com.example.bluetoothtemperaturesubmitter.R
@@ -29,13 +31,42 @@ class User_temperature_log : AppCompatActivity() {
                 Toast.makeText(this@User_temperature_log, "오류 발생 : $t", Toast.LENGTH_LONG).show()
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(
                 call: Call<List<Temperature>>,
                 response: Response<List<Temperature>>
             ) {
                 if(response.isSuccessful){
                     if(response.code() == 200){
-                        tempData = (response.body() as ArrayList<Temperature>?)!!
+                        var i = response.body()!!.size - 1
+                        if(i > 1) {
+                            while (i >= 0) {
+                                tempData.add(response.body()!![i--])
+                            }
+                            my_temperature.text = tempData[tempData.size - 1].value.toString() + "℃"
+                            if (tempData[tempData.size - 1].value >= 37.5) {
+                                my_temperature_state.setBackgroundDrawable(
+                                    ContextCompat.getDrawable(
+                                        this@User_temperature_log,
+                                        R.drawable.high_temp
+                                    )
+                                )
+                                state_text.text = "고열"
+                            } else if (tempData[tempData.size - 1].value <= 35.5) {
+                                my_temperature_state.setBackgroundDrawable(
+                                    ContextCompat.getDrawable(
+                                        this@User_temperature_log,
+                                        R.drawable.ractangle
+                                    )
+                                )
+                                state_text.text = "저체온"
+                            }
+                        }
+                        else if(i == 0){
+                            my_temperature.text = "0℃"
+                            my_temperature_state.setBackgroundDrawable(ContextCompat.getDrawable(this@User_temperature_log, R.drawable.zero_degree))
+                            state_text.text = "미측정"
+                        }
                     }
                 }
             }

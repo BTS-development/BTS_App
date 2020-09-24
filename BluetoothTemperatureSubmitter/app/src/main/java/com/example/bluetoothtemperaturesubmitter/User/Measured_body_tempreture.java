@@ -20,6 +20,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -86,7 +87,7 @@ public class Measured_body_tempreture extends Activity {
             int b;
             for(int i = 0; i < s.length()-1; i++){
                 b = s.charAt(i)-48;
-                if(b == 2){
+                if(b == -2){
                     temp += ".";
                 } else {
                     temp += b;
@@ -99,15 +100,16 @@ public class Measured_body_tempreture extends Activity {
                 finish();
             }
 
-            String finalTemp = temp;
+            double finalA = a;
             service.postTemp(intent.getStringExtra("token"),a).enqueue(new Callback<Temperature>() {
                 @Override
                 public void onResponse(Call<Temperature> call, Response<Temperature> response) {
-                    Toast.makeText(getApplicationContext(),"온도 : " + finalTemp, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"온도 : " + finalA, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
                 public void onFailure(Call<Temperature> call, Throwable t) {
+
                     Toast.makeText(getApplicationContext(),"온도값 변환중 오류 발생", Toast.LENGTH_LONG).show();
                 }
             });

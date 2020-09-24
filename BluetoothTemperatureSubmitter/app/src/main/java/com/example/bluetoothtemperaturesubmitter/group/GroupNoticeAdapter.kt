@@ -2,6 +2,7 @@ package com.example.bluetoothtemperaturesubmitter.group
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,14 +43,17 @@ class GroupNoticeAdapter (context: Context, noticeList : List<Temperature>,token
 
         RetrofitHelper().getUserAPI().getUser(mToken, NoticeData[position].owner.toString()).enqueue(object : Callback<UserInfo>{
             override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                Log.d("CODE", response.code().toString())
+                Log.d("NAME", "i"+response.body()!!.username)
                 temp = response.body()!!.username
+
+                noticeNameList.text = "그룹원 " + temp + "님에게 고열이 감지되었습니다."
             }
 
             override fun onFailure(call: Call<UserInfo>, t: Throwable) {
             }
 
         })
-        noticeNameList.text = "그룹원 " + temp + "님에게 고열이 감지되었습니다."
 
         return view
     }

@@ -12,17 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            android:src="@drawable/back_space" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:gravity="center_vertical"
             android:fontFamily="@font/roboto"
             android:text="내 체온 기록"
             android:textColor="#797979"
@@ -60,7 +56,9 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/retangle"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/state_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

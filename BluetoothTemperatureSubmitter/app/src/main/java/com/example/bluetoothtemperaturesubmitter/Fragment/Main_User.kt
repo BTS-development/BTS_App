@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
+import com.example.bluetoothtemperaturesubmitter.DTO.Temperature
 import com.example.bluetoothtemperaturesubmitter.DTO.UserInfo
 import com.example.bluetoothtemperaturesubmitter.R
 import com.example.bluetoothtemperaturesubmitter.User.Measured_body_tempreture
@@ -44,6 +45,22 @@ class Main_User() : Fragment() {
                             Log.d("TAG", "ERROR")
                             my_name.text = response.body()!!.username
                             my_email.text = response.body()!!.email
+                            RetrofitHelper().getTemperatureAPI().getMyTemp(token).enqueue(object : Callback<List<Temperature>>{
+                                override fun onFailure(
+                                    call: Call<List<Temperature>>,
+                                    t: Throwable
+                                ) {
+
+                                }
+
+                                override fun onResponse(
+                                    call: Call<List<Temperature>>,
+                                    response: Response<List<Temperature>>
+                                ) {
+
+                                }
+
+                            })
 
                         }
                     }
@@ -56,6 +73,8 @@ class Main_User() : Fragment() {
                 }
 
             })
+
+
         }
 
         root.go_temperatures.setOnClickListener {

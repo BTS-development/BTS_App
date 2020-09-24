@@ -17,8 +17,10 @@ class UserAdapter(val context: Context, private val arrayList: ArrayList<Tempera
 
         if (arrayList[position].value >= 37.5){
             view.My_temperature_state_listview.setBackgroundDrawable (ContextCompat.getDrawable(context, R.drawable.high_temp))
+            view.state_text.text = "고열"
         } else if(arrayList[position].value <= 35.5){
             view.My_temperature_state_listview.setBackgroundDrawable (ContextCompat.getDrawable(context, R.drawable.ractangle))
+            view.state_text.text = "저체온"
         }
 
         val token = arrayList[position].created_at.split('-')
