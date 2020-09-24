@@ -39,7 +39,7 @@ class SignupActivity : AppCompatActivity() {
             RetrofitHelper().getUserAPI().signUp(username, email, password1, password2).enqueue(object : retrofit2.Callback<Signup> {
                 override fun onResponse(call: Call<Signup>, response: Response<Signup>) {
                     when (response.code()) {
-                        200 -> {
+                        201 -> {
                             Toast.makeText(this@SignupActivity , "회원가입 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@SignupActivity,MainActivity::class.java)
                             startActivity(intent)

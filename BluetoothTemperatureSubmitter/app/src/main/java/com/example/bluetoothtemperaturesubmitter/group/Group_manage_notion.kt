@@ -49,10 +49,12 @@ class Group_manage_notion : AppCompatActivity() {
             val token = intent.getStringExtra("token")
             val pk = intent.getIntExtra("group_id", 0)
             val group_name = intent.getStringExtra("group_name")
+            val code = intent.getStringExtra("group_code")
             val intent = Intent(this@Group_manage_notion,Group_manage_member::class.java)
             intent.putExtra("token",token)
             intent.putExtra("group_id", pk)
             intent.putExtra("group_name", group_name)
+            intent.putExtra("group_code", code)
             startActivity(intent)
         }
     }

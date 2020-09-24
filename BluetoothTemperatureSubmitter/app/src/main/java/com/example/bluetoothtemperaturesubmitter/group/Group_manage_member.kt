@@ -26,6 +26,7 @@ class Group_manage_member : AppCompatActivity() {
         var manageArrayList = ArrayList<User>()
         member_group_name.text = intent.getStringExtra("group_name")
         Log.d("token", token)
+        Group_Code.text = intent.getStringExtra("group_code")
         RetrofitHelper().getGroupAPI().getGroupMember(token,intent.getIntExtra("group_id",0).toString()).enqueue(object : Callback<List<User>>{
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                 manageArrayList = (response.body() as ArrayList<User>)!!

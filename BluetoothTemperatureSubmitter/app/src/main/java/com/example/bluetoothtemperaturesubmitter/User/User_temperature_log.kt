@@ -36,15 +36,17 @@ class User_temperature_log : AppCompatActivity() {
                 call: Call<List<Temperature>>,
                 response: Response<List<Temperature>>
             ) {
+                Log.d("ERROR", response.code().toString())
                 if(response.isSuccessful){
-                    if(response.code() == 200){
+                    Log.d("ERROR", response.code().toString())
+                    if(response.body() != null){
                         var i = response.body()!!.size - 1
                         if(i > 1) {
                             while (i >= 0) {
                                 tempData.add(response.body()!![i--])
                             }
-                            my_temperature.text = tempData[tempData.size - 1].value.toString() + "℃"
-                            if (tempData[tempData.size - 1].value >= 37.5) {
+                            my_temperature.text = tempData[0].value.toString() + "℃"
+                            if (tempData[0].value >= 37.5) {
                                 my_temperature_state.setBackgroundDrawable(
                                     ContextCompat.getDrawable(
                                         this@User_temperature_log,
@@ -52,7 +54,7 @@ class User_temperature_log : AppCompatActivity() {
                                     )
                                 )
                                 state_text.text = "고열"
-                            } else if (tempData[tempData.size - 1].value <= 35.5) {
+                            } else if (tempData[0].value <= 35.5) {
                                 my_temperature_state.setBackgroundDrawable(
                                     ContextCompat.getDrawable(
                                         this@User_temperature_log,
@@ -62,11 +64,13 @@ class User_temperature_log : AppCompatActivity() {
                                 state_text.text = "저체온"
                             }
                         }
-                        else if(i == 0){
+                        else if(i == -1){
                             my_temperature.text = "0℃"
                             my_temperature_state.setBackgroundDrawable(ContextCompat.getDrawable(this@User_temperature_log, R.drawable.zero_degree))
                             state_text.text = "미측정"
                         }
+                    } else {
+                        Log.d("ERROR", response.code().toString())
                     }
                 }
             }

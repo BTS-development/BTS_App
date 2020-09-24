@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/Group_member_image"
         android:layout_width="47dp"
@@ -12,14 +13,23 @@
         android:layout_marginLeft="27dp"
         android:src="@drawable/group_gray"
         app:civ_border_color="#E0E0E0"
-        app:civ_border_width="2dp"/>
+        app:civ_border_width="2dp" />
+
     <TextView
         android:id="@+id/Grout_member_name"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textColor="#757575"
-        android:textSize="14dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:text="정한빈"
-        android:layout_gravity="center"/>
+        android:textColor="#757575"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/temp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>

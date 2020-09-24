@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/user_date"
-        android:layout_width="25dp"
+        android:layout_width="50dp"
         android:layout_height="18dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/roboto_regular"

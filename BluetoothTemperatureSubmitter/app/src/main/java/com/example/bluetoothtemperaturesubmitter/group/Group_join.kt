@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.group
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Group
 import com.example.bluetoothtemperaturesubmitter.DTO.JoinGroup
 import com.example.bluetoothtemperaturesubmitter.DTO.UserInfo
+import com.example.bluetoothtemperaturesubmitter.MainNavigationPager
 import com.example.bluetoothtemperaturesubmitter.R
 import kotlinx.android.synthetic.main.activity_group_join.*
 import retrofit2.Call
@@ -53,6 +55,10 @@ class Group_join : AppCompatActivity() {
                     if (response.isSuccessful){
                         Log.d("CODE", response.code().toString())
                         Toast.makeText(this@Group_join, "그룹에 가입 되었습니다.", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this@Group_join, MainNavigationPager::class.java)
+                        intent.putExtra("token", token)
+                        intent.putExtra("pk", response.body()!!.id)
+                        startActivity(intent)
                         finish()
                     }
                 }

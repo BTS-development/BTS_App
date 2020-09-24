@@ -105,6 +105,7 @@ public class Measured_body_tempreture extends Activity {
                 @Override
                 public void onResponse(Call<Temperature> call, Response<Temperature> response) {
                     Toast.makeText(getApplicationContext(),"온도 : " + finalA, Toast.LENGTH_LONG).show();
+                    Log.d("ERROR", String.valueOf(response.code()));
                 }
 
                 @Override
