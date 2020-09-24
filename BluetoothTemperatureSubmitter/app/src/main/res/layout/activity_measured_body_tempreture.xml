@@ -43,14 +43,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/back_space" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -142,12 +137,12 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:text="℃"
+        android:textColor="#ffffff"
         android:textSize="45dp"
         android:textStyle="bold"
-        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/circleImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

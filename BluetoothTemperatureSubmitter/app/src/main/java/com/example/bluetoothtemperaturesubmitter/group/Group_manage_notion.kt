@@ -21,26 +21,36 @@ class Group_manage_notion : AppCompatActivity() {
         userTemp()
         getNoticeIntent()
     }
-
     fun getNotice(){
         notion_group_name.text = intent.getStringExtra("group_name")
     }
     fun getNoticeIntent(){
         Afternoon_temperature.setOnClickListener {
-            val intent = Intent(this@Group_manage_notion,Measured_body_tempreture::class.java)
+
             val token = intent.getStringExtra("token")
+            val intent = Intent(this@Group_manage_notion,Measured_body_tempreture::class.java)
             intent.putExtra("token",token)
             startActivity(intent)
         }
         Am_temperature.setOnClickListener {
-            val intent = Intent(this@Group_manage_notion,Measured_body_tempreture::class.java)
+
             val token = intent.getStringExtra("token")
+            val intent = Intent(this@Group_manage_notion,Measured_body_tempreture::class.java)
             intent.putExtra("token",token)
+            startActivity(intent)
+        }
+        group_image.setOnClickListener {
+
+            val token = intent.getStringExtra("token")
+            val pk = intent.getIntExtra("group_id", 0)
+            val intent = Intent(this@Group_manage_notion,Group_manage_member::class.java)
+            intent.putExtra("token",token)
+            intent.putExtra("group_id", pk)
             startActivity(intent)
         }
     }
     fun userTemp(){
-        val arrayList = ArrayList<Temperature>()
+        val arrayListMember = ArrayList<Temperature>()
         val token = intent.getStringExtra("token")
         RetrofitHelper().getTemperatureAPI().getGroupTemp(token!!,intent.getIntExtra("group_id",0).toString()).enqueue(object : Callback<List<Temperature>>{
             override fun onResponse(
@@ -50,10 +60,10 @@ class Group_manage_notion : AppCompatActivity() {
                 if(response.code() == 200) {
                     for (g: Temperature in response.body()!!) {
                         if (g.value >= 37.5) {
-                            arrayList.add(g)
+                            arrayListMember.add(g)
                         }
                     }
-                    notice_list.adapter = GroupNoticeAdapter(this@Group_manage_notion, arrayList, token)
+                    notice_list.adapter = GroupNoticeAdapter(this@Group_manage_notion, arrayListMember, token)
                 }
                 else {
                     Log.d("CODE", response.code().toString())

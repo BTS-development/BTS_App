@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:textColor="#757575"
         android:textSize="14dp"
-        android:text="정한빈"
         android:layout_marginLeft="20dp"
+        android:text="정한빈"
         android:layout_gravity="center"/>
 </LinearLayout>
