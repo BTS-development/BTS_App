@@ -36,6 +36,26 @@ class Group_create : AppCompatActivity() {
         val token = intent.getStringExtra("token")
 
 
+        RetrofitHelper().getUserAPI().getUser(token, intent.getIntExtra("pk",0).toString()).enqueue(object : Callback<UserInfo>{
+            override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+                Log.d("ERROR", t.toString())
+            }
+
+            override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                if(response.isSuccessful){
+                    if(response.body() != null){
+                        Group_my_email.text = response.body()!!.email
+                        Group_my_name.text = response.body()!!.username
+                    }else {
+                        Log.d("ERROR", response.code().toString())
+                    }
+                }
+                else {
+                    Log.d("ERROR", response.code().toString())
+                }
+            }
+
+        })
 
 
         Group_Join.setOnClickListener {

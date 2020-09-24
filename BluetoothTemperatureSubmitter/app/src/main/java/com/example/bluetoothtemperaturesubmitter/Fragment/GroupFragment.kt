@@ -61,7 +61,7 @@ class GroupFragment : Fragment() {
                 override fun onResponse(call: Call<List<Groups>>, response: Response<List<Groups>>) {
                     arrayList1 = (response.body() as ArrayList<Groups>?)!!
 
-                    view.group_listview_member.adapter = GroupListAdapter(activity!!.applicationContext,arrayList1)
+                    view.group_listview_member.adapter = GroupListAdapter(activity!!.applicationContext,arrayList1, token)
                 }
 
                 override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
@@ -74,7 +74,7 @@ class GroupFragment : Fragment() {
                 override fun onResponse(call: Call<List<Groups>>, response: Response<List<Groups>>) {
                     arrayList = (response.body() as ArrayList<Groups>?)!!
 
-                    view.group_listview.adapter = GroupListAdapter(activity!!.applicationContext,arrayList)
+                    view.group_listview.adapter = GroupListAdapter(activity!!.applicationContext,arrayList, token)
                 }
 
                 override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
@@ -87,6 +87,8 @@ class GroupFragment : Fragment() {
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
             val intent = Intent(activity, Group_manage_notion::class.java)
+            intent.putExtra("pk",pk)
+            intent.putExtra("token", token)
             intent.putExtra("group_id",arrayList[position].id)
             intent.putExtra("group_name",arrayList[position].name)
             intent.putExtra("group_code",arrayList[position].code)
@@ -103,7 +105,7 @@ class GroupFragment : Fragment() {
             intent.putExtra("group_code",arrayList1[position].code)
             intent.putExtra("group_date",arrayList1[position].created_at)
             intent.putExtra("group_owner",arrayList1[position].owner)
-            startActivity(intent)
+            activity!!.startActivity(intent)
         }
 
 

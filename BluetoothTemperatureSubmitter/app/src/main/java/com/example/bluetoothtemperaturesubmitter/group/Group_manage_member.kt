@@ -8,5 +8,10 @@ class Group_manage_member : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_manage_member)
+
+        val intent = intent
+
+
+
     }
 }

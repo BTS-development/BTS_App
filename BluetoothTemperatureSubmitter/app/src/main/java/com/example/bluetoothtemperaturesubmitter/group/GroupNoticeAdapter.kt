@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.group
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -32,6 +33,7 @@ class GroupNoticeAdapter (context: Context, noticeList : List<Temperature>,token
         return position.toLong()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var temp = ""
         val layoutInflater = LayoutInflater.from(mContext)
