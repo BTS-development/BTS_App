@@ -41,7 +41,7 @@ class User_temperature_log : AppCompatActivity() {
                     Log.d("ERROR", response.code().toString())
                     if(response.body() != null){
                         var i = response.body()!!.size - 1
-                        if(i > 1) {
+                        if(i > -1) {
                             while (i >= 0) {
                                 tempData.add(response.body()!![i--])
                             }
