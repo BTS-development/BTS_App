@@ -46,24 +46,32 @@ class Group_join : AppCompatActivity() {
         })
 
         Group_Join.setOnClickListener{
-            RetrofitHelper().getGroupAPI().joinGroup(token, Group(Group_ID.text.toString())).enqueue(object : Callback<JoinGroup>{
-                override fun onFailure(call: Call<JoinGroup>, t: Throwable) {
-                    Log.d("TAG", t.toString())
-                }
+            if(Group_ID.text.isNotEmpty()) {
+                RetrofitHelper().getGroupAPI().joinGroup(token, Group(Group_ID.text.toString()))
+                    .enqueue(object : Callback<JoinGroup> {
+                        override fun onFailure(call: Call<JoinGroup>, t: Throwable) {
+                            Log.d("TAG", t.toString())
+                        }
 
-                override fun onResponse(call: Call<JoinGroup>, response: Response<JoinGroup>) {
-                    if (response.isSuccessful){
-                        Log.d("CODE", response.code().toString())
-                        Toast.makeText(this@Group_join, "그룹에 가입 되었습니다.", Toast.LENGTH_LONG).show()
-                        val intent = Intent(this@Group_join, MainNavigationPager::class.java)
-                        intent.putExtra("token", token)
-                        intent.putExtra("pk", pk)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
+                        override fun onResponse(
+                            call: Call<JoinGroup>,
+                            response: Response<JoinGroup>
+                        ) {
+                            if (response.isSuccessful) {
+                                Log.d("CODE", response.code().toString())
+                                Toast.makeText(this@Group_join, "그룹에 가입 되었습니다.", Toast.LENGTH_LONG)
+                                    .show()
+                                val intent =
+                                    Intent(this@Group_join, MainNavigationPager::class.java)
+                                intent.putExtra("token", token)
+                                intent.putExtra("pk", pk)
+                                startActivity(intent)
+                                finish()
+                            }
+                        }
 
-            })
+                    })
+            }
         }
 
     }
