@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Groups
 import com.example.bluetoothtemperaturesubmitter.DTO.User
+import com.example.bluetoothtemperaturesubmitter.DTO.UserInfo
 import com.example.bluetoothtemperaturesubmitter.R
 import kotlinx.android.synthetic.main.activity_group_manage_member.*
 import kotlinx.android.synthetic.main.group_management.view.*
@@ -59,6 +60,18 @@ class Group_manage_member : AppCompatActivity() {
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 Log.d("d",t.toString())
             }
+        })
+        RetrofitHelper().getUserAPI().getUser(token, intent.getIntExtra("group_owner",0).toString()).enqueue(object : Callback<UserInfo>{
+            override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                if (response.isSuccessful){
+                    Grout_reader_name.text = response.body()!!.username
+                }
+            }
+
         })
     }
 }

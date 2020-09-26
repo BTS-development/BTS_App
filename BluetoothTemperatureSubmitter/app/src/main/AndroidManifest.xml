@@ -10,13 +10,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:logo="@drawable/btslogo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:logo="@drawable/btslogo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainNavigationPager">
-        </activity>
+        <activity android:name=".InputTemperature"></activity>
+        <activity android:name=".MainNavigationPager"></activity>
         <activity android:name=".group.Group_create" />
         <activity android:name=".group.Group_join" />
         <activity android:name=".group.Group_manage_member" />
@@ -24,7 +24,7 @@
         <activity android:name=".User.User_temperature_log" />
         <activity android:name=".User.Measured_body_tempreture" />
         <activity android:name=".User.MainPageActivity" />
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

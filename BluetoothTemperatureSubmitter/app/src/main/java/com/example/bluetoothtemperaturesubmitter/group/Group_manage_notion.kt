@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Temperature
 import com.example.bluetoothtemperaturesubmitter.DTO.User
+import com.example.bluetoothtemperaturesubmitter.InputTemperature
 import com.example.bluetoothtemperaturesubmitter.R
 import com.example.bluetoothtemperaturesubmitter.User.Measured_body_tempreture
 import kotlinx.android.synthetic.main.activity_group_manage_member.*
@@ -40,7 +41,7 @@ class Group_manage_notion : AppCompatActivity() {
         Am_temperature.setOnClickListener {
 
             val token = intent.getStringExtra("token")
-            val intent = Intent(this@Group_manage_notion,Measured_body_tempreture::class.java)
+            val intent = Intent(this@Group_manage_notion,InputTemperature::class.java)
             intent.putExtra("token",token)
             startActivity(intent)
         }
@@ -50,11 +51,13 @@ class Group_manage_notion : AppCompatActivity() {
             val pk = intent.getIntExtra("group_id", 0)
             val group_name = intent.getStringExtra("group_name")
             val code = intent.getStringExtra("group_code")
+            val owner = intent.getIntExtra("group_owner",0)
             val intent = Intent(this@Group_manage_notion,Group_manage_member::class.java)
             intent.putExtra("token",token)
             intent.putExtra("group_id", pk)
             intent.putExtra("group_name", group_name)
             intent.putExtra("group_code", code)
+            intent.putExtra("group_owner",owner)
             startActivity(intent)
         }
     }

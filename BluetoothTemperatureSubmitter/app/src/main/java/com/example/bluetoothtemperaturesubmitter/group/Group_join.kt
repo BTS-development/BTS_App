@@ -57,7 +57,7 @@ class Group_join : AppCompatActivity() {
                         Toast.makeText(this@Group_join, "그룹에 가입 되었습니다.", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@Group_join, MainNavigationPager::class.java)
                         intent.putExtra("token", token)
-                        intent.putExtra("pk", response.body()!!.id)
+                        intent.putExtra("pk", pk)
                         startActivity(intent)
                         finish()
                     }

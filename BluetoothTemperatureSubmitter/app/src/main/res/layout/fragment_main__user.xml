@@ -89,7 +89,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
-                android:text="체온 측청 하러가기"
+                android:text="체온 측정 하러가기"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
 

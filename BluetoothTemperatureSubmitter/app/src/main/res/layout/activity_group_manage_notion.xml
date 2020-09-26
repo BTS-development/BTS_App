@@ -90,15 +90,6 @@
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="공지사항"
-            android:textSize="18dp"
-            android:textColor="#000000"
-            android:fontFamily="@font/roboto"
-            android:layout_marginLeft="25dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,14 +101,15 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/black_retangle"/>
+
             <TextView
-                android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#696969"
-                android:textSize="14dp"
+                android:layout_marginLeft="5dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="18:00 ~ 19:00 내로 자가 체온 측정 부탁드립니다."/>
+                android:text="체온 측정하러 가는 곳"
+                android:textColor="#696969"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,7 +129,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/roboto"
-                    android:text="체온 측청 하러가기"
+                    android:text="체온 측정 하러가기"
                     android:textColor="#ffffff"
                     android:textSize="20dp" />
 
@@ -161,14 +153,15 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/black_retangle"/>
+
             <TextView
-                android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#696969"
-                android:textSize="14dp"
+                android:layout_marginLeft="5dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="12:00 ~ 13:00 내로 자가 체온 측정 부탁드립니다."/>
+                android:text="체온 입력하러 가는 곳"
+                android:textColor="#696969"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -188,7 +181,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/roboto"
-                    android:text="체온 측청 하러가기"
+                    android:text="체온 입력 하러가기"
                     android:textColor="#ffffff"
                     android:textSize="20dp" />
 
