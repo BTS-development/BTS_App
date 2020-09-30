@@ -45,6 +45,7 @@ class User_temperature_log : AppCompatActivity() {
                             while (i >= 0) {
                                 tempData.add(response.body()!![i--])
                             }
+                            selectAll()
                             my_temperature.text = tempData[0].value.toString() + "℃"
                             if (tempData[0].value >= 37.5) {
                                 my_temperature_state.setBackgroundDrawable(
