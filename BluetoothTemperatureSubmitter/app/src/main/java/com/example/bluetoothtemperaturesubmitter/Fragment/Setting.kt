@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.Fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,12 +20,20 @@ class Setting : Fragment() {
         val root =  inflater.inflate(R.layout.fragment_setting, container, false)
 
         root.Logout.setOnClickListener {
+            logOut()
             startActivity(Intent(activity, MainActivity::class.java))
             activity!!.finish()
         }
 
 
         return root
+    }
+
+    fun logOut(){
+        val pref = activity!!.getSharedPreferences("user", Activity.MODE_PRIVATE)
+        val editor = pref.edit()
+        editor.clear()
+        editor.apply()
     }
 
 }

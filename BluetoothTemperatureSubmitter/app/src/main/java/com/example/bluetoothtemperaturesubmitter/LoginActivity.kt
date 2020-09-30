@@ -1,5 +1,7 @@
 package com.example.bluetoothtemperaturesubmitter
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
                     when (response.code()) {
                         200 -> {
+                            saveData(IDText.text.toString(), passwordText.text.toString())
                             val intent = Intent(this@LoginActivity, MainNavigationPager::class.java)
                             intent.putExtra("token", "jwt " + response.body()!!.token)
                             intent.putExtra("pk", response.body()!!.user.pk)
@@ -38,5 +41,13 @@ class LoginActivity : AppCompatActivity() {
             })
         }
 
+    }
+    @SuppressLint("CommitPrefEdits")
+    fun saveData(id : String, pwd : String){
+        val pref = getSharedPreferences("user", Activity.MODE_PRIVATE)
+        val editor = pref.edit()
+        editor.putString("id", id)
+        editor.putString("pwd", pwd)
+        editor.apply()
     }
 }
