@@ -34,9 +34,10 @@ class Group_create : AppCompatActivity() {
     }
     fun GroupName_Next(){
         val token = intent.getStringExtra("token")
+        val id = intent.getIntExtra("pk",0)
 
 
-        RetrofitHelper().getUserAPI().getUser(token, intent.getIntExtra("pk",0).toString()).enqueue(object : Callback<UserInfo>{
+        RetrofitHelper().getUserAPI().getUser(token, id.toString()).enqueue(object : Callback<UserInfo>{
             override fun onFailure(call: Call<UserInfo>, t: Throwable) {
                 Log.d("ERROR", t.toString())
             }
@@ -71,7 +72,7 @@ class Group_create : AppCompatActivity() {
                             Toast.makeText(this@Group_create , "그룹 생성 성공", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@Group_create, MainNavigationPager::class.java)
                             intent.putExtra("token", token)
-                            intent.putExtra("pk", response.body()!!.id)
+                            intent.putExtra("pk", id)
                             startActivity(intent)
                             finish()
                         }
