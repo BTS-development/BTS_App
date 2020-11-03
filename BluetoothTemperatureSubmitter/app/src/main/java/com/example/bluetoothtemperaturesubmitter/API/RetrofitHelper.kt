@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitHelper{
 
-        var okHttpClient = OkHttpClient.Builder()
+        private var okHttpClient: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(20, TimeUnit.SECONDS)
         .writeTimeout(20, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
