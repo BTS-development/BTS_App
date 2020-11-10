@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Groups
@@ -27,6 +28,10 @@ class GroupFragment : Fragment() {
 
         val token : String? = arguments!!.getString("token")
         val pk = arguments?.getInt("pk")
+
+        val groupListMember = view.findViewById<ListView>(R.id.group_listview_member)
+        val groupList = view.findViewById<ListView>(R.id.group_listview)
+
         // Inflate the layout for this fragment
         view.group_create.setOnClickListener {
             if(activity != null) {
@@ -57,45 +62,44 @@ class GroupFragment : Fragment() {
         if (token != null) {
 
 
-            if(group_listview_member != null && group_listview != null) {
+            RetrofitHelper().getGroupAPI().getMyGroup(token)
+                .enqueue(object : Callback<List<Groups>> {
+                    override fun onResponse(
+                        call: Call<List<Groups>>,
+                        response: Response<List<Groups>>
+                    ) {
+                        arrayList1 = (response.body() as ArrayList<Groups>?)!!
 
-                RetrofitHelper().getGroupAPI().getMyGroup(token)
-                    .enqueue(object : Callback<List<Groups>> {
-                        override fun onResponse(
-                            call: Call<List<Groups>>,
-                            response: Response<List<Groups>>
-                        ) {
-                            arrayList1 = (response.body() as ArrayList<Groups>?)!!
+                        groupListMember.adapter =
+                            context?.let { GroupListAdapter(it, arrayList1, token) }
+                    }
 
-                            view.group_listview_member!!.adapter =
-                                GroupListAdapter(activity!!.applicationContext, arrayList1, token)
-                        }
+                    override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                        Log.d("ERROR", t.toString())
+                    }
 
-                        override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                            Log.d("ERROR", t.toString())
-                        }
+                })
 
-                    })
-
-                RetrofitHelper().getGroupAPI().getGroup(token)
-                    .enqueue(object : Callback<List<Groups>> {
-                        override fun onResponse(
-                            call: Call<List<Groups>>,
-                            response: Response<List<Groups>>
-                        ) {
+            RetrofitHelper().getGroupAPI().getGroup(token)
+                .enqueue(object : Callback<List<Groups>> {
+                    override fun onResponse(
+                        call: Call<List<Groups>>,
+                        response: Response<List<Groups>>
+                    ) {
+                        if(response.isSuccessful){
                             arrayList = (response.body() as ArrayList<Groups>?)!!
-
-                            view.group_listview!!.adapter =
-                                GroupListAdapter(activity!!.applicationContext, arrayList, token)
+                            groupList.adapter =
+                                context?.let { GroupListAdapter(it, arrayList, token) }
                         }
 
-                        override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                            Log.d("ERROR", t.toString())
-                        }
+                    }
+
+                    override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                        Log.d("ERROR", t.toString())
+                    }
 
 
-                    })
-            }
+                })
         }
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
