@@ -12,6 +12,7 @@ import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Groups
 import com.example.bluetoothtemperaturesubmitter.R
 import com.example.bluetoothtemperaturesubmitter.group.*
+import kotlinx.android.synthetic.main.fragment_group.*
 import kotlinx.android.synthetic.main.fragment_group.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -56,37 +57,49 @@ class GroupFragment : Fragment() {
         if (token != null) {
 
 
+            if(group_listview_member != null && group_listview != null) {
 
-            RetrofitHelper().getGroupAPI().getMyGroup(token).enqueue(object : Callback<List<Groups>>{
-                override fun onResponse(call: Call<List<Groups>>, response: Response<List<Groups>>) {
-                    arrayList1 = (response.body() as ArrayList<Groups>?)!!
+                RetrofitHelper().getGroupAPI().getMyGroup(token)
+                    .enqueue(object : Callback<List<Groups>> {
+                        override fun onResponse(
+                            call: Call<List<Groups>>,
+                            response: Response<List<Groups>>
+                        ) {
+                            arrayList1 = (response.body() as ArrayList<Groups>?)!!
 
-                    view.group_listview_member.adapter = GroupListAdapter(activity!!.applicationContext,arrayList1, token)
-                }
+                            view.group_listview_member!!.adapter =
+                                GroupListAdapter(activity!!.applicationContext, arrayList1, token)
+                        }
 
-                override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                    Log.d("ERROR", t.toString())
-                }
+                        override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                            Log.d("ERROR", t.toString())
+                        }
 
-            })
+                    })
 
-            RetrofitHelper().getGroupAPI().getGroup(token).enqueue(object : Callback<List<Groups>>{
-                override fun onResponse(call: Call<List<Groups>>, response: Response<List<Groups>>) {
-                    arrayList = (response.body() as ArrayList<Groups>?)!!
+                RetrofitHelper().getGroupAPI().getGroup(token)
+                    .enqueue(object : Callback<List<Groups>> {
+                        override fun onResponse(
+                            call: Call<List<Groups>>,
+                            response: Response<List<Groups>>
+                        ) {
+                            arrayList = (response.body() as ArrayList<Groups>?)!!
 
-                    view.group_listview.adapter = GroupListAdapter(activity!!.applicationContext,arrayList, token)
-                }
+                            view.group_listview!!.adapter =
+                                GroupListAdapter(activity!!.applicationContext, arrayList, token)
+                        }
 
-                override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                    Log.d("ERROR", t.toString())
-                }
+                        override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                            Log.d("ERROR", t.toString())
+                        }
 
 
-            })
+                    })
+            }
         }
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
-            val intent = Intent(activity, Group_manage_notion::class.java)
+            val intent = Intent(context, Group_manage_notion::class.java)
             intent.putExtra("pk",pk)
             intent.putExtra("token", token)
             intent.putExtra("group_id",arrayList[position].id)

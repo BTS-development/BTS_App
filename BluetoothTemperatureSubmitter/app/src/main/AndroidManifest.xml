@@ -8,10 +8,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/btslogo"
         android:label="@string/app_name"
         android:logo="@drawable/btslogo"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/btslogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">

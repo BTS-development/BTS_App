@@ -51,8 +51,8 @@ class Main_User() : Fragment() {
                         Log.d("TAG", "ERROR")
                         if (response.body() != null) {
                             Log.d("TAG", "ERROR")
-                            my_name.text = response.body()!!.username
-                            my_email.text = response.body()!!.email
+                            my_name?.text = response.body()!!.username
+                            my_email?.text = response.body()!!.email
                             RetrofitHelper().getTemperatureAPI().getMyTemp(token).enqueue(object : Callback<List<Temperature>>{
                                 override fun onFailure(
                                     call: Call<List<Temperature>>,
@@ -82,9 +82,9 @@ class Main_User() : Fragment() {
                                                         todayTemperature = t.value
                                                     }
                                                 }
-                                                today_result.text = todayTemperature.toString()
+                                                today_result?.text = todayTemperature.toString()
                                             } else {
-                                                today_result.text = "오늘 측정 결과가\n 없습니다"
+                                                today_result?.text = "오늘 측정 결과가\n 없습니다"
                                             }
                                             if(yesterdayTemp.size > 0){
                                                 for(t : Temperature in yesterdayTemp){
@@ -92,9 +92,9 @@ class Main_User() : Fragment() {
                                                         yesterdayTemperature = t.value
                                                     }
                                                 }
-                                                yesterday_result.text = yesterdayTemperature.toString()
+                                                yesterday_result?.text = yesterdayTemperature.toString()
                                             } else {
-                                                yesterday_result.text = "어제 측정 결과가\n 없습니다"
+                                                yesterday_result?.text = "어제 측정 결과가\n 없습니다"
                                             }
                                             if(twoDaysAgoTemp.size > 0){
                                                 for(t : Temperature in twoDaysAgoTemp){
@@ -102,9 +102,9 @@ class Main_User() : Fragment() {
                                                         twoDaysAgoTemperature = t.value
                                                     }
                                                 }
-                                                days_before_result.text = todayTemperature.toString()
+                                                days_before_result?.text = todayTemperature.toString()
                                             } else {
-                                                days_before_result.text = "이틀전 측정 결과가\n 없습니다"
+                                                days_before_result?.text = "이틀전 측정 결과가\n 없습니다"
                                             }
                                         }
                                     }
