@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("token", "jwt " + response.body()!!.token)
                         intent.putExtra("pk", response.body()!!.user.pk)
                         startActivity(intent)
+                        finish()
                     }
                 }
             }
