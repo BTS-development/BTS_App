@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bluetoothtemperaturesubmitter.API.RetrofitHelper
 import com.example.bluetoothtemperaturesubmitter.DTO.Login
-import com.example.bluetoothtemperaturesubmitter.User.MainPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback

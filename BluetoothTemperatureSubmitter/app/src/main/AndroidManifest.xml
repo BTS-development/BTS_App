@@ -14,6 +14,8 @@
         android:roundIcon="@drawable/btslogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:screenOrientation="portrait"
         android:usesCleartextTraffic="true">
         <activity android:name=".InputTemperature"></activity>
         <activity android:name=".MainNavigationPager"></activity>
