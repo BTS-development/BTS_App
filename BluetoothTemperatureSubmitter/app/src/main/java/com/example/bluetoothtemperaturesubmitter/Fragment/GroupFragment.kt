@@ -22,6 +22,8 @@ import retrofit2.Response
 
 class GroupFragment : Fragment() {
 
+    var arrayList = ArrayList<Groups>()
+    var arrayList1 = ArrayList<Groups>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_group, container, false)
@@ -29,17 +31,13 @@ class GroupFragment : Fragment() {
         val token : String? = arguments!!.getString("token")
         val pk = arguments?.getInt("pk")
 
-        val groupListMember = view.findViewById<ListView>(R.id.group_listview_member)
-        val groupList = view.findViewById<ListView>(R.id.group_listview)
-
         // Inflate the layout for this fragment
         view.group_create.setOnClickListener {
             if(activity != null) {
                 val intent = Intent(activity, Group_create::class.java)
                 intent.putExtra("token",token)
                 intent.putExtra("pk", pk)
-                activity!!.startActivity(intent)
-                activity!!.finish()
+                this.startActivityForResult(intent,1)
             } else {
                 Log.d("ERROR", "ERROR")
             }
@@ -49,57 +47,16 @@ class GroupFragment : Fragment() {
                 val intent = Intent(activity, Group_join::class.java)
                 intent.putExtra("token",token)
                 intent.putExtra("pk",pk)
-                activity!!.startActivity(intent)
-                activity!!.finish()
+                this.startActivityForResult(intent,1)
             }else {
                 Log.d("ERROR", "ERROR")
             }
         }
 
-        var arrayList = ArrayList<Groups>()
-        var arrayList1 = ArrayList<Groups>()
+
 
         if (token != null) {
-
-
-            RetrofitHelper().getGroupAPI().getMyGroup(token)
-                .enqueue(object : Callback<List<Groups>> {
-                    override fun onResponse(
-                        call: Call<List<Groups>>,
-                        response: Response<List<Groups>>
-                    ) {
-                        arrayList1 = (response.body() as ArrayList<Groups>?)!!
-
-                        groupListMember.adapter =
-                            context?.let { GroupListAdapter(it, arrayList1, token) }
-                    }
-
-                    override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                        Log.d("ERROR", t.toString())
-                    }
-
-                })
-
-            RetrofitHelper().getGroupAPI().getGroup(token)
-                .enqueue(object : Callback<List<Groups>> {
-                    override fun onResponse(
-                        call: Call<List<Groups>>,
-                        response: Response<List<Groups>>
-                    ) {
-                        if(response.isSuccessful){
-                            arrayList = (response.body() as ArrayList<Groups>?)!!
-                            groupList.adapter =
-                                context?.let { GroupListAdapter(it, arrayList, token) }
-                        }
-
-                    }
-
-                    override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
-                        Log.d("ERROR", t.toString())
-                    }
-
-
-                })
+            refreshList(token)
         }
 
         view.group_listview.setOnItemClickListener{ adapterView: AdapterView<*>, view: View, position: Int, l: Long ->
@@ -129,6 +86,56 @@ class GroupFragment : Fragment() {
 
 
         return view
+    }
+
+    private fun refreshList(token : String){
+        RetrofitHelper().getGroupAPI().getMyGroup(token)
+            .enqueue(object : Callback<List<Groups>> {
+                override fun onResponse(
+                    call: Call<List<Groups>>,
+                    response: Response<List<Groups>>
+                ) {
+                    arrayList1 = (response.body() as ArrayList<Groups>?)!!
+
+                    group_listview_member.adapter =
+                        context?.let { GroupListAdapter(it, arrayList1, token) }
+                }
+
+                override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                    Log.d("ERROR", t.toString())
+                }
+
+            })
+
+        RetrofitHelper().getGroupAPI().getGroup(token)
+            .enqueue(object : Callback<List<Groups>> {
+                override fun onResponse(
+                    call: Call<List<Groups>>,
+                    response: Response<List<Groups>>
+                ) {
+                    if(response.isSuccessful){
+                        arrayList = (response.body() as ArrayList<Groups>?)!!
+                        group_listview.adapter =
+                            context?.let { GroupListAdapter(it, arrayList, token) }
+                    }
+
+                }
+
+                override fun onFailure(call: Call<List<Groups>>, t: Throwable) {
+                    Log.d("ERROR", t.toString())
+                }
+
+
+            })
+    }
+
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(data != null){
+            refreshList(data.getStringExtra("token"))
+        }
     }
 
 }

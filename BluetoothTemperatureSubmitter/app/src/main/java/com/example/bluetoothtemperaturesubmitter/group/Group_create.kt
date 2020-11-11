@@ -1,5 +1,6 @@
 package com.example.bluetoothtemperaturesubmitter.group
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -73,7 +74,7 @@ class Group_create : AppCompatActivity() {
                             val intent = Intent(this@Group_create, MainNavigationPager::class.java)
                             intent.putExtra("token", token)
                             intent.putExtra("pk", id)
-                            startActivity(intent)
+                            setResult(Activity.RESULT_OK,intent)
                             finish()
                         }
                         400 -> {
