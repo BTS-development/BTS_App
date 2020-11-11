@@ -69,7 +69,9 @@ class Main_User() : Fragment() {
                                         if(response.body() != null){
                                             for(t : Temperature in response.body()!!){
                                                 val today = LocalDate.now().atStartOfDay()
+                                                Log.d("DATE", today.format(DateTimeFormatter.ISO_DATE))
                                                 val tempDate = LocalDate.parse(t.created_at, DateTimeFormatter.ISO_DATE).atStartOfDay()
+                                                Log.d("ExDate",t.created_at)
                                                 when (Duration.between(tempDate, today).toDays().toInt()){
                                                     0 -> todayTemp.add(t)
                                                     1 -> yesterdayTemp.add(t)
